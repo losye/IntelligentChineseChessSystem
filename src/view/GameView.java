@@ -8,6 +8,7 @@ import control.GameController;
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,7 +36,7 @@ public class GameView {
 
     public void init(final Board board) {
         this.board = board;
-        frame = new JFrame("Intelligent Chinese Chess @Zhongyi.Tong");
+        frame = new JFrame("Intelligent Chinese Chess");
         frame.setIconImage(new ImageIcon("res/img/icon.png").getImage());
         frame.setSize(VIEW_WIDTH, VIEW_HEIGHT + 40);
         frame.setLocationRelativeTo(null);
@@ -131,8 +132,9 @@ public class GameView {
         public void mousePressed(MouseEvent e) {
             if (selectedPieceKey != null && key.charAt(0) != board.player) {
                 int[] pos = board.pieces.get(key).position;
-                int[] selectedPiecePos = board.pieces.get(selectedPieceKey).position;
+                                                                int[] selectedPiecePos = board.pieces.get(selectedPieceKey).position;
                 /* If an enemy piece already has been selected.*/
+
                 for (int[] each : Rules.getNextMove(selectedPieceKey, selectedPiecePos, board)) {
                     if (Arrays.equals(each, pos)) {
                         // Kill self and move that piece.

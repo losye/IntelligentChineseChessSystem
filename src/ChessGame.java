@@ -30,9 +30,9 @@ public class ChessGame {
         while (controller.hasWin(board) == 'x') {
             view.showPlayer('r');
             /* User in. */
-            while (board.player == 'r')
-                Thread.sleep(1000);
-
+            /*while (board.player == 'r')
+                Thread.sleep(1000);*/
+            controller.responseMoveChess(board, view);
             if (controller.hasWin(board) != 'x')
                 view.showWinner('r');
             view.showPlayer('b');

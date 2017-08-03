@@ -14,7 +14,10 @@ import java.util.Map;
  * GameController, dealing with logic along game process.
  */
 public class GameController {
-
+    /**
+     * 初始化位置,"bj0"表示 黑方，车，左边的
+     * @return
+     */
     private Map<String, Piece> initPieces() {
         Map<String, Piece> pieces = new HashMap<String, Piece>();
         pieces.put("bj0", new Piece("bj0", new int[]{0, 0}));
